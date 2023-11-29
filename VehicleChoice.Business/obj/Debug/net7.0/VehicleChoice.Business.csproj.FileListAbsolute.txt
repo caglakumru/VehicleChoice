@@ -1,0 +1,17 @@
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.Business\bin\Debug\net7.0\VehicleChoice.Business.deps.json
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.Business\bin\Debug\net7.0\VehicleChoice.Business.dll
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.Business\bin\Debug\net7.0\VehicleChoice.Business.pdb
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.Business\bin\Debug\net7.0\VehicleChoice.DataAccsess.dll
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.Business\bin\Debug\net7.0\VehicleChoice.Entities.dll
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.Business\bin\Debug\net7.0\VehicleChoice.DataAccsess.pdb
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.Business\bin\Debug\net7.0\VehicleChoice.Entities.pdb
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.Business\obj\Debug\net7.0\VehicleChoice.Business.csproj.AssemblyReference.cache
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.Business\obj\Debug\net7.0\VehicleChoice.Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.Business\obj\Debug\net7.0\VehicleChoice.Business.AssemblyInfoInputs.cache
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.Business\obj\Debug\net7.0\VehicleChoice.Business.AssemblyInfo.cs
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.Business\obj\Debug\net7.0\VehicleChoice.Business.csproj.CoreCompileInputs.cache
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.Business\obj\Debug\net7.0\VehicleChoice.Business.csproj.CopyComplete
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.Business\obj\Debug\net7.0\VehicleChoice.Business.dll
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.Business\obj\Debug\net7.0\refint\VehicleChoice.Business.dll
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.Business\obj\Debug\net7.0\VehicleChoice.Business.pdb
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.Business\obj\Debug\net7.0\ref\VehicleChoice.Business.dll

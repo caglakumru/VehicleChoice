@@ -1,0 +1,11 @@
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.Entity\bin\Debug\net7.0\VehicleChoice.Entities.deps.json
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.Entity\bin\Debug\net7.0\VehicleChoice.Entities.dll
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.Entity\bin\Debug\net7.0\VehicleChoice.Entities.pdb
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.Entity\obj\Debug\net7.0\VehicleChoice.Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.Entity\obj\Debug\net7.0\VehicleChoice.Entities.AssemblyInfoInputs.cache
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.Entity\obj\Debug\net7.0\VehicleChoice.Entities.AssemblyInfo.cs
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.Entity\obj\Debug\net7.0\VehicleChoice.Entities.csproj.CoreCompileInputs.cache
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.Entity\obj\Debug\net7.0\VehicleChoice.Entities.dll
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.Entity\obj\Debug\net7.0\refint\VehicleChoice.Entities.dll
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.Entity\obj\Debug\net7.0\VehicleChoice.Entities.pdb
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.Entity\obj\Debug\net7.0\ref\VehicleChoice.Entities.dll

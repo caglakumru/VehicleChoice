@@ -1,0 +1,17 @@
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.DataAccsess\bin\Debug\net7.0\VehicleChoice.DataAccsess.deps.json
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.DataAccsess\bin\Debug\net7.0\VehicleChoice.DataAccsess.runtimeconfig.json
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.DataAccsess\bin\Debug\net7.0\VehicleChoice.DataAccsess.dll
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.DataAccsess\bin\Debug\net7.0\VehicleChoice.DataAccsess.pdb
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.DataAccsess\bin\Debug\net7.0\VehicleChoice.Entities.dll
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.DataAccsess\bin\Debug\net7.0\VehicleChoice.Entities.pdb
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.DataAccsess\obj\Debug\net7.0\VehicleChoice.DataAccsess.csproj.AssemblyReference.cache
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.DataAccsess\obj\Debug\net7.0\VehicleChoice.DataAccsess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.DataAccsess\obj\Debug\net7.0\VehicleChoice.DataAccsess.AssemblyInfoInputs.cache
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.DataAccsess\obj\Debug\net7.0\VehicleChoice.DataAccsess.AssemblyInfo.cs
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.DataAccsess\obj\Debug\net7.0\VehicleChoice.DataAccsess.csproj.CoreCompileInputs.cache
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.DataAccsess\obj\Debug\net7.0\VehicleChoice.DataAccsess.csproj.CopyComplete
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.DataAccsess\obj\Debug\net7.0\VehicleChoice.DataAccsess.dll
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.DataAccsess\obj\Debug\net7.0\refint\VehicleChoice.DataAccsess.dll
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.DataAccsess\obj\Debug\net7.0\VehicleChoice.DataAccsess.pdb
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.DataAccsess\obj\Debug\net7.0\VehicleChoice.DataAccsess.genruntimeconfig.cache
+C:\Users\cagla.kumru\source\repos\VehicleChoice\VehicleChoice.DataAccsess\obj\Debug\net7.0\ref\VehicleChoice.DataAccsess.dll
