@@ -14,9 +14,10 @@ namespace VehicleChoice.DataAccsess
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Vehicle>().UseTpcMappingStrategy();
-            modelBuilder.Entity<Car>().ToTable("Cars");
         }
         public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<Car> Cars { get; set; }
+        public DbSet<Bus> Buses { get; set; }
+        public DbSet<Boat> Boats { get; set; }
     }
 }

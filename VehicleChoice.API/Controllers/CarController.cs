@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 using VehicleChoice.Business.Abstract;
 using VehicleChoice.Entity;

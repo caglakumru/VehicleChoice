@@ -44,6 +44,26 @@ namespace VehicleChoice.DataAccsess.Migrations
                     b.UseTpcMappingStrategy();
                 });
 
+            modelBuilder.Entity("VehicleChoice.Entity.Boat", b =>
+                {
+                    b.HasBaseType("VehicleChoice.Entity.Vehicle");
+
+                    b.Property<int>("Speed")
+                        .HasColumnType("int");
+
+                    b.ToTable("Boats");
+                });
+
+            modelBuilder.Entity("VehicleChoice.Entity.Bus", b =>
+                {
+                    b.HasBaseType("VehicleChoice.Entity.Vehicle");
+
+                    b.Property<int>("Capacity")
+                        .HasColumnType("int");
+
+                    b.ToTable("Buses");
+                });
+
             modelBuilder.Entity("VehicleChoice.Entity.Car", b =>
                 {
                     b.HasBaseType("VehicleChoice.Entity.Vehicle");
@@ -55,7 +75,7 @@ namespace VehicleChoice.DataAccsess.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.ToTable("Cars", (string)null);
+                    b.ToTable("Cars");
                 });
 #pragma warning restore 612, 618
         }
