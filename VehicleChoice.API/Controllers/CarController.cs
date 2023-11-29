@@ -8,7 +8,8 @@ namespace VehicleChoice.API.Controllers
     [Route("[controller]")]
     public class CarController : ControllerBase
     {
-        private ICarService _carService;
+
+ private ICarService _carService;
 
         public CarController(ICarService carService)
         {
@@ -20,10 +21,10 @@ namespace VehicleChoice.API.Controllers
             return _carService.GetAllCars();
         }
 
-        [HttpGet("{id}")]
-        public Car Get(int id)
+        [HttpGet("{color}")]
+        public Car Get(string color)
         {
-            return _carService.GetCarById(id);
+            return _carService.GetCarByColor(color);
         }
 
         [HttpPost]

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.ConstrainedExecution;
-using System.Text;
-using System.Threading.Tasks;
-using VehicleChoice.Entity;
+﻿using VehicleChoice.Entity;
 
 namespace VehicleChoice.Business.Abstract
 {
@@ -12,6 +6,7 @@ namespace VehicleChoice.Business.Abstract
     {
         List<Car> GetAllCars();
         Car GetCarById(int id);
+        Car GetCarByColor(string color);
         Car CreateCar(Car car);
         Car UpdateCar(Car car);
 

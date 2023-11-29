@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.ConstrainedExecution;
-using System.Text;
-using System.Threading.Tasks;
-using VehicleChoice.DataAccsess.Abstract;
+﻿using VehicleChoice.DataAccsess.Abstract;
 using VehicleChoice.Entity;
 
 namespace VehicleChoice.DataAccsess.Concrete
 {
-    public class CarRepository:ICarRepository
+    public class CarRepository : ICarRepository
     {
         public Car CreateCar(Car car)
         {
@@ -43,7 +37,15 @@ namespace VehicleChoice.DataAccsess.Concrete
         {
             using (var vehicleDbContext = new VehicleDbContext())
             {
-                return vehicleDbContext.Cars.Find(id);
+                return vehicleDbContext.Cars.Find(id); 
+            }
+        }
+
+        public Car GetCarByColor(string color)
+        {
+            using (var vehicleDbContext = new VehicleDbContext())
+            {
+                return vehicleDbContext.Cars.FirstOrDefault(x=>x.Color==color);
             }
         }
 

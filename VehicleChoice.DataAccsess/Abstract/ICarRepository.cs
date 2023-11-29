@@ -6,6 +6,7 @@ namespace VehicleChoice.DataAccsess.Abstract
     {
         List<Car> GetAllCars();
         Car GetCarById(int id);
+        Car GetCarByColor(string color);
         Car CreateCar(Car car);
         Car UpdateCar(Car car);
 

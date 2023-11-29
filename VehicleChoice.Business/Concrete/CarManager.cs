@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.ConstrainedExecution;
-using System.Text;
-using System.Threading.Tasks;
-using VehicleChoice.Business.Abstract;
+﻿using VehicleChoice.Business.Abstract;
 using VehicleChoice.DataAccsess.Abstract;
 using VehicleChoice.Entity;
 
@@ -36,6 +30,11 @@ namespace VehicleChoice.Business.Concrete
         public Car GetCarById(int id)
         {
             return _carRepository.GetCarById(id);
+        }
+
+        public Car GetCarByColor(string color)
+        {
+            return _carRepository.GetCarByColor(color);
         }
 
         public Car UpdateCar(Car car)
