@@ -15,33 +15,51 @@ namespace VehicleChoice.API.Controllers
             _busService = busService;
         }
         [HttpGet]
-        public List<Bus> Get()
+        public IActionResult Get()
         {
-            return _busService.GetAllBuses();
+            var results = _busService.GetAllBuses();
+            return Ok(results);
         }
 
         [HttpGet("{color}")]
-        public Bus Get(string color)
+        public IActionResult Get(string color)
         {
-            return _busService.GetBusByColor(color);
+            var result = _busService.GetBusByColor(color);
+            if (result != null)
+            {
+                return Ok(result);
+            }
+            return NotFound();
         }
 
         [HttpPost]
-        public Bus Post([FromBody] Bus bus)
+        public IActionResult Post([FromBody] Bus bus)
         {
-            return _busService.CreateBus(bus);
+            var createdBus = _busService.CreateBus(bus);
+            return CreatedAtAction("Get", new { id = createdBus.Id }, createdBus);
+
         }
 
         [HttpPut]
-        public Bus Put([FromBody] Bus bus)
+        public IActionResult Put([FromBody] Bus bus)
         {
-            return _busService.UpdateBus(bus);
+            if (_busService.GetBusById(bus.Id) != null)
+            {
+                return Ok(_busService.UpdateBus(bus));
+            }
+            return NotFound();
         }
 
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
-            _busService.DeleteBus(id);
+            if (_busService.GetBusById(id) != null)
+            {
+                _busService.DeleteBus(id);
+                return Ok();
+            }
+            return NotFound();
+
         }
     }
 }

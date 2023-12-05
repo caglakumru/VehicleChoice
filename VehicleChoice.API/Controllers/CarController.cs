@@ -9,40 +9,58 @@ namespace VehicleChoice.API.Controllers
     public class CarController : ControllerBase
     {
 
- private ICarService _carService;
+        private ICarService _carService;
 
         public CarController(ICarService carService)
         {
             _carService = carService;
         }
         [HttpGet]
-        public List<Car> Get()
+        public IActionResult Get()
         {
-            return _carService.GetAllCars();
+            var results = _carService.GetAllCars();
+            return Ok(results);
         }
 
         [HttpGet("{color}")]
-        public Car Get(string color)
+        public IActionResult Get(string color)
         {
-            return _carService.GetCarByColor(color);
+            var result= _carService.GetCarByColor(color);
+            if (result!=null)
+            {
+                return Ok(result);
+            }
+            return NotFound();
         }
 
         [HttpPost]
-        public Car Post([FromBody] Car car)
+        public IActionResult Post([FromBody] Car car)
         {
-            return _carService.CreateCar(car);
+            var createdCar= _carService.CreateCar(car);
+            return CreatedAtAction("Get", new { id = createdCar.Id }, createdCar);
         }
 
         [HttpPut]
-        public Car Put([FromBody] Car car)
+        public IActionResult Put([FromBody] Car car)
         {
-            return _carService.UpdateCar(car);
+            if (_carService.GetCarById(car.Id)!=null)
+            {
+                return Ok(_carService.UpdateCar(car));
+            }
+            return NotFound();
         }
 
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
-            _carService.DeleteCar(id);
+
+            if (_carService.GetCarById(id) != null)
+            {
+                _carService.DeleteCar(id);
+                return Ok();
+            }
+
+            return NotFound();
         }
     }
 }

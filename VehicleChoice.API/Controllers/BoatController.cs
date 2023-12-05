@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using VehicleChoice.Business.Abstract;
+using VehicleChoice.DataAccsess.Migrations;
 using VehicleChoice.Entity;
 
 namespace VehicleChoice.API.Controllers
@@ -15,33 +16,53 @@ namespace VehicleChoice.API.Controllers
             _boatService = boatService;
         }
         [HttpGet]
-        public List<Boat> Get()
+        public IActionResult Get()
         {
-            return _boatService.GetAllBoats();
+            var results = _boatService.GetAllBoats();
+            return Ok(results);
+
         }
 
         [HttpGet("{color}")]
-        public Boat Get(string color)
+        public IActionResult Get(string color)
         {
-            return _boatService.GetBoatByColor(color);
+            var result = _boatService.GetBoatByColor(color);
+            if (result != null)
+            {
+                return Ok(result);
+            }
+            return NotFound();
         }
 
         [HttpPost]
-        public Boat Post([FromBody] Boat boat)
+        public IActionResult Post([FromBody] Boat boat)
         {
-            return _boatService.CreateBoat(boat);
+            var createdBoat = _boatService.CreateBoat(boat);
+            return CreatedAtAction("Get", new { id = createdBoat.Id }, createdBoat);
+
         }
 
         [HttpPut]
-        public Boat Put([FromBody] Boat boat)
+        public IActionResult Put([FromBody] Boat boat)
         {
-            return _boatService.UpdateBoat(boat);
+            if (_boatService.GetBoatById(boat.Id) != null)
+            {
+                return Ok(_boatService.UpdateBoat(boat));
+            }
+            return NotFound();
         }
 
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
-            _boatService.DeleteBoat(id);
+            if (_boatService.GetBoatById(id) != null)
+            {
+                _boatService.DeleteBoat(id);
+
+                return Ok();
+            }
+
+            return NotFound();
         }
     }
 }
