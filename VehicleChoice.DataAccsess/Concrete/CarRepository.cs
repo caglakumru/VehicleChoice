@@ -1,60 +1,61 @@
-﻿using VehicleChoice.DataAccsess.Abstract;
+﻿using Microsoft.EntityFrameworkCore;
+using VehicleChoice.DataAccsess.Abstract;
 using VehicleChoice.Entity;
 
 namespace VehicleChoice.DataAccsess.Concrete
 {
     public class CarRepository : ICarRepository
     {
-        public Car CreateCar(Car car)
+        public async Task<Car> CreateCar(Car car)
         {
             using (var vehicleDbContext = new VehicleDbContext())
             {
                 vehicleDbContext.Cars.Add(car);
-                vehicleDbContext.SaveChanges();
+                await vehicleDbContext.SaveChangesAsync();
                 return car;
             }
         }
 
-        public void DeleteCar(int id)
+        public async Task DeleteCar(int id)
         {
             using (var vehicleDbContext = new VehicleDbContext())
             {
-                var deletedCar = GetCarById(id);
+                var deletedCar = await GetCarById(id);
                 vehicleDbContext.Remove(deletedCar);
-                vehicleDbContext.SaveChanges();
+                await vehicleDbContext.SaveChangesAsync();
             }
         }
 
-        public List<Car> GetAllCars()
+        public async Task<List<Car>> GetAllCars()
         {
             using (var vehicleDbContext = new VehicleDbContext())
             {
-                return vehicleDbContext.Cars.ToList();
+                return await vehicleDbContext.Cars.ToListAsync();
             }
         }
 
-        public Car GetCarById(int id)
+        public async Task<Car> GetCarById(int id)
         {
             using (var vehicleDbContext = new VehicleDbContext())
             {
-                return vehicleDbContext.Cars.Find(id); 
+                return await vehicleDbContext.Cars.FindAsync(id); 
             }
         }
 
-        public Car GetCarByColor(string color)
+        public async Task<Car> GetCarByColor(string color)
         {
             using (var vehicleDbContext = new VehicleDbContext())
             {
-                return vehicleDbContext.Cars.FirstOrDefault(x=>x.Color==color);
+                return await vehicleDbContext.Cars.FirstOrDefaultAsync(x=>x.Color==color);
             }
         }
 
-        public Car UpdateCar(Car car)
+        public async Task<Car> UpdateCar(Car car)
         {
             using (var vehicleDbContext = new VehicleDbContext())
             {
                 vehicleDbContext.Cars.Update(car);
-                vehicleDbContext.SaveChanges();
+                await vehicleDbContext.SaveChangesAsync();
                 return car;
             }
         }

@@ -12,34 +12,34 @@ namespace VehicleChoice.Business.Concrete
         {
             _carRepository = carRepository;
         }
-        public Car CreateCar(Car car)
+        public async Task<Car> CreateCar(Car car)
         {
-            return _carRepository.CreateCar(car);
+            return await _carRepository.CreateCar(car);
         }
 
-        public void DeleteCar(int id)
+        public async Task DeleteCar(int id)
         {
-            _carRepository.DeleteCar(id);
+            await _carRepository.DeleteCar(id);
         }
 
-        public List<Car> GetAllCars()
+        public async Task<List<Car>> GetAllCars()
         {
-            return _carRepository.GetAllCars();
+            return await _carRepository.GetAllCars();
         }
 
-        public Car GetCarById(int id)
+        public async Task<Car> GetCarById(int id)
         {
-            return _carRepository.GetCarById(id);
+            return await _carRepository.GetCarById(id);
         }
 
-        public Car GetCarByColor(string color)
+        public async Task<Car> GetCarByColor(string color)
         {
-            return _carRepository.GetCarByColor(color);
+            return await _carRepository.GetCarByColor(color);
         }
 
-        public Car UpdateCar(Car car)
+        public async Task<Car> UpdateCar(Car car)
         {
-            return _carRepository.UpdateCar(car);
+            return await _carRepository.UpdateCar(car);
         }
     }
 }

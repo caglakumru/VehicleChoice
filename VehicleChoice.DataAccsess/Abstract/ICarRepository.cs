@@ -4,12 +4,12 @@ namespace VehicleChoice.DataAccsess.Abstract
 {
     public interface ICarRepository
     {
-        List<Car> GetAllCars();
-        Car GetCarById(int id);
-        Car GetCarByColor(string color);
-        Car CreateCar(Car car);
-        Car UpdateCar(Car car);
+        Task<List<Car>> GetAllCars();
+        Task<Car> GetCarById(int id);
+        Task<Car> GetCarByColor(string color);
+        Task<Car> CreateCar(Car car);
+        Task<Car> UpdateCar(Car car);
 
-        void DeleteCar(int id);
+        Task DeleteCar(int id);
     }
 }

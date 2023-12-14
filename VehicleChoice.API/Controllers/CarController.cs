@@ -16,16 +16,16 @@ namespace VehicleChoice.API.Controllers
             _carService = carService;
         }
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
-            var results = _carService.GetAllCars();
+            var results = await _carService.GetAllCars();
             return Ok(results);
         }
 
         [HttpGet("{color}")]
-        public IActionResult Get(string color)
+        public async Task<IActionResult> Get(string color)
         {
-            var result= _carService.GetCarByColor(color);
+            var result= await _carService.GetCarByColor(color);
             if (result!=null)
             {
                 return Ok(result);
@@ -34,29 +34,29 @@ namespace VehicleChoice.API.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] Car car)
+        public async Task<IActionResult> Post([FromBody] Car car)
         {
-            var createdCar= _carService.CreateCar(car);
+            var createdCar= await _carService.CreateCar(car);
             return CreatedAtAction("Get", new { id = createdCar.Id }, createdCar);
         }
 
         [HttpPut]
-        public IActionResult Put([FromBody] Car car)
+        public async Task<IActionResult> Put([FromBody] Car car)
         {
-            if (_carService.GetCarById(car.Id)!=null)
+            if (await _carService.GetCarById(car.Id)!=null)
             {
-                return Ok(_carService.UpdateCar(car));
+                return Ok(await _carService.UpdateCar(car));
             }
             return NotFound();
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
 
-            if (_carService.GetCarById(id) != null)
+            if (await _carService.GetCarById(id) != null)
             {
-                _carService.DeleteCar(id);
+                await _carService.DeleteCar(id);
                 return Ok();
             }
 
