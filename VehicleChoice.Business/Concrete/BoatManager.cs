@@ -13,33 +13,33 @@ namespace VehicleChoice.Business.Concrete
         {
             _boatRepository = boatRepository;
         }
-        public Boat CreateBoat(Boat boat)
+        public async Task<Boat> CreateBoat(Boat boat)
         {
-            return _boatRepository.CreateBoat(boat);
+            return await _boatRepository.CreateBoat(boat);
         }
-        public Boat GetBoatByColor(string color)
+        public async Task<Boat> GetBoatByColor(string color)
         {
-            return _boatRepository.GetBoatByColor(color);
-        }
-
-        public void DeleteBoat(int id)
-        {
-            _boatRepository.DeleteBoat(id);
+            return await _boatRepository.GetBoatByColor(color);
         }
 
-        public List<Boat> GetAllBoats()
+        public async Task DeleteBoat(int id)
         {
-            return _boatRepository.GetAllBoats();
+            await _boatRepository.DeleteBoat(id);
         }
 
-        public Boat GetBoatById(int id)
+        public async Task<List<Boat>> GetAllBoats()
         {
-            return _boatRepository.GetBoatById(id);
+            return await _boatRepository.GetAllBoats();
         }
 
-        public Boat UpdateBoat(Boat boat)
+        public async Task<Boat> GetBoatById(int id)
         {
-            return _boatRepository.UpdateBoat(boat);
+            return await _boatRepository.GetBoatById(id);
+        }
+
+        public async Task<Boat> UpdateBoat(Boat boat)
+        {
+            return await _boatRepository.UpdateBoat(boat);
         }
     }
 }

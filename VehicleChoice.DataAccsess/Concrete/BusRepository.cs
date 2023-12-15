@@ -1,59 +1,60 @@
-﻿using VehicleChoice.DataAccsess.Abstract;
+﻿using Microsoft.EntityFrameworkCore;
+using VehicleChoice.DataAccsess.Abstract;
 using VehicleChoice.Entity;
 
 namespace VehicleChoice.DataAccsess.Concrete
 {
-    public class BusRepository:IBusRepository
+    public class BusRepository : IBusRepository
     {
-        public Bus CreateBus(Bus bus)
+        public async Task<Bus> CreateBus(Bus bus)
         {
             using (var vehicleDbContext = new VehicleDbContext())
             {
                 vehicleDbContext.Buses.Add(bus);
-                vehicleDbContext.SaveChanges();
+                await vehicleDbContext.SaveChangesAsync();
                 return bus;
             }
         }
 
-        public void DeleteBus(int id)
+        public async Task DeleteBus(int id)
         {
             using (var vehicleDbContext = new VehicleDbContext())
             {
-                var deletedBus = GetBusById(id);
+                var deletedBus = await GetBusById(id);
                 vehicleDbContext.Remove(deletedBus);
-                vehicleDbContext.SaveChanges();
+                await vehicleDbContext.SaveChangesAsync();
             }
         }
 
-        public List<Bus> GetAllBuses()
+        public async Task<List<Bus>> GetAllBuses()
         {
             using (var vehicleDbContext = new VehicleDbContext())
             {
-                return vehicleDbContext.Buses.ToList();
+                return await vehicleDbContext.Buses.ToListAsync();
             }
         }
 
-        public Bus GetBusById(int id)
+        public async Task<Bus> GetBusById(int id)
         {
             using (var vehicleDbContext = new VehicleDbContext())
             {
-                return vehicleDbContext.Buses.Find(id);
+                return await vehicleDbContext.Buses.FindAsync(id);
             }
-        }    
-        public Bus GetBusByColor(string color)
+        }
+        public async Task<Bus> GetBusByColor(string color)
         {
             using (var vehicleDbContext = new VehicleDbContext())
             {
-                return vehicleDbContext.Buses.FirstOrDefault(x=>x.Color==color);
+                return await vehicleDbContext.Buses.FirstOrDefaultAsync(x => x.Color == color);
             }
         }
 
-        public Bus UpdateBus(Bus bus)
+        public async Task<Bus> UpdateBus(Bus bus)
         {
             using (var vehicleDbContext = new VehicleDbContext())
             {
                 vehicleDbContext.Buses.Update(bus);
-                vehicleDbContext.SaveChanges();
+                await vehicleDbContext.SaveChangesAsync();
                 return bus;
             }
         }

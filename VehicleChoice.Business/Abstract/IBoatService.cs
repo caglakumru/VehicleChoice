@@ -4,12 +4,12 @@ namespace VehicleChoice.Business.Abstract
 {
     public interface IBoatService
     {
-        List<Boat> GetAllBoats();
-        Boat GetBoatById(int id);
-        Boat CreateBoat(Boat boat);
-        Boat GetBoatByColor(string color);
-        Boat UpdateBoat(Boat boat);
+        Task<List<Boat>> GetAllBoats();
+        Task<Boat> GetBoatById(int id);
+        Task<Boat> CreateBoat(Boat boat);
+        Task<Boat> GetBoatByColor(string color);
+        Task<Boat> UpdateBoat(Boat boat);
 
-        void DeleteBoat(int id);
+        Task DeleteBoat(int id);
     }
 }

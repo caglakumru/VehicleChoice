@@ -1,58 +1,59 @@
-﻿using VehicleChoice.DataAccsess.Abstract;
+﻿using Microsoft.EntityFrameworkCore;
+using VehicleChoice.DataAccsess.Abstract;
 using VehicleChoice.Entity;
 
 namespace VehicleChoice.DataAccsess.Concrete
 {
     public class BoatRepository : IBoatRepository
     {
-        public Boat CreateBoat(Boat boat)
+        public async Task<Boat> CreateBoat(Boat boat)
         {
             using (var vehicleDbContext = new VehicleDbContext())
             {
                 vehicleDbContext.Boats.Add(boat);
-                vehicleDbContext.SaveChanges();
+                await vehicleDbContext.SaveChangesAsync();
                 return boat;
             }
         }
 
-        public void DeleteBoat(int id)
+        public async Task DeleteBoat(int id)
         {
             using (var vehicleDbContext = new VehicleDbContext())
             {
-                var deletedBoat = GetBoatById(id);
+                var deletedBoat = await GetBoatById(id);
                 vehicleDbContext.Remove(deletedBoat);
-                vehicleDbContext.SaveChanges();
+                await vehicleDbContext.SaveChangesAsync();
             }
         }
 
-        public List<Boat> GetAllBoats()
+        public async Task<List<Boat>> GetAllBoats()
         {
             using (var vehicleDbContext = new VehicleDbContext())
             {
-                return vehicleDbContext.Boats.ToList();
+                return await vehicleDbContext.Boats.ToListAsync();
             }
         }
-        public Boat GetBoatByColor(string color)
+        public async Task<Boat> GetBoatByColor(string color)
         {
             using (var vehicleDbContext = new VehicleDbContext())
             {
-                return vehicleDbContext.Boats.FirstOrDefault(x => x.Color == color);
+                return await vehicleDbContext.Boats.FirstOrDefaultAsync(x => x.Color == color);
             }
         }
-        public Boat GetBoatById(int id)
+        public async Task<Boat> GetBoatById(int id)
         {
             using (var vehicleDbContext = new VehicleDbContext())
             {
-                return vehicleDbContext.Boats.Find(id);
+                return await vehicleDbContext.Boats.FindAsync(id);
             }
         }
 
-        public Boat UpdateBoat(Boat boat)
+        public async Task<Boat> UpdateBoat(Boat boat)
         {
             using (var vehicleDbContext = new VehicleDbContext())
             {
                 vehicleDbContext.Boats.Update(boat);
-                vehicleDbContext.SaveChanges();
+                await vehicleDbContext.SaveChangesAsync();
                 return boat;
             }
         }

@@ -16,17 +16,17 @@ namespace VehicleChoice.API.Controllers
             _boatService = boatService;
         }
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
-            var results = _boatService.GetAllBoats();
+            var results = await _boatService.GetAllBoats();
             return Ok(results);
 
         }
 
         [HttpGet("{color}")]
-        public IActionResult Get(string color)
+        public async Task<IActionResult> Get(string color)
         {
-            var result = _boatService.GetBoatByColor(color);
+            var result = await _boatService.GetBoatByColor(color);
             if (result != null)
             {
                 return Ok(result);
@@ -35,29 +35,29 @@ namespace VehicleChoice.API.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] Boat boat)
+        public async Task<IActionResult> Post([FromBody] Boat boat)
         {
-            var createdBoat = _boatService.CreateBoat(boat);
+            var createdBoat = await _boatService.CreateBoat(boat);
             return CreatedAtAction("Get", new { id = createdBoat.Id }, createdBoat);
 
         }
 
         [HttpPut]
-        public IActionResult Put([FromBody] Boat boat)
+        public async Task<IActionResult> Put([FromBody] Boat boat)
         {
-            if (_boatService.GetBoatById(boat.Id) != null)
+            if (await _boatService.GetBoatById(boat.Id) != null)
             {
-                return Ok(_boatService.UpdateBoat(boat));
+                return Ok(await _boatService.UpdateBoat(boat));
             }
             return NotFound();
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            if (_boatService.GetBoatById(id) != null)
+            if (await _boatService.GetBoatById(id) != null)
             {
-                _boatService.DeleteBoat(id);
+                await _boatService.DeleteBoat(id);
 
                 return Ok();
             }

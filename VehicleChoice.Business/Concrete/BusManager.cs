@@ -12,33 +12,33 @@ namespace VehicleChoice.Business.Concrete
         {
             _busRepository = busRepository;
         }
-        public Bus CreateBus(Bus bus)
+        public async Task<Bus> CreateBus(Bus bus)
         {
-            return _busRepository.CreateBus(bus);
+            return await _busRepository.CreateBus(bus);
         }
 
-        public void DeleteBus(int id)
+        public async Task DeleteBus(int id)
         {
-            _busRepository.DeleteBus(id);
+           await _busRepository.DeleteBus(id);
         }
 
-        public List<Bus> GetAllBuses()
+        public async Task<List<Bus>> GetAllBuses()
         {
-            return _busRepository.GetAllBuses();
+            return await _busRepository.GetAllBuses();
         }
 
-        public Bus GetBusById(int id)
+        public async Task<Bus> GetBusById(int id)
         {
-            return _busRepository.GetBusById(id);
+            return await _busRepository.GetBusById(id);
         }
-        public Bus GetBusByColor(string color)
+        public async Task<Bus> GetBusByColor(string color)
         {
-            return _busRepository.GetBusByColor(color);
+            return await _busRepository.GetBusByColor(color);
         }
 
-        public Bus UpdateBus(Bus bus)
+        public async Task<Bus> UpdateBus(Bus bus)
         {
-            return _busRepository.UpdateBus(bus);
+            return await _busRepository.UpdateBus(bus);
         }
     }
 }

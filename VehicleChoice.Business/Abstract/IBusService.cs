@@ -4,12 +4,12 @@ namespace VehicleChoice.Business.Abstract
 {
     public interface IBusService
     {
-        List<Bus> GetAllBuses();
-        Bus GetBusById(int id);
-        Bus GetBusByColor(string color);
-        Bus CreateBus(Bus bus);
-        Bus UpdateBus(Bus bus);
+        Task<List<Bus>> GetAllBuses();
+        Task<Bus> GetBusById(int id);
+        Task<Bus> GetBusByColor(string color);
+        Task<Bus> CreateBus(Bus bus);
+        Task<Bus> UpdateBus(Bus bus);
 
-        void DeleteBus(int id);
+        Task DeleteBus(int id);
     }
 }

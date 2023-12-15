@@ -15,16 +15,16 @@ namespace VehicleChoice.API.Controllers
             _busService = busService;
         }
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
-            var results = _busService.GetAllBuses();
+            var results = await _busService.GetAllBuses();
             return Ok(results);
         }
 
         [HttpGet("{color}")]
-        public IActionResult Get(string color)
+        public async Task<IActionResult> Get(string color)
         {
-            var result = _busService.GetBusByColor(color);
+            var result = await _busService.GetBusByColor(color);
             if (result != null)
             {
                 return Ok(result);
@@ -33,29 +33,29 @@ namespace VehicleChoice.API.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] Bus bus)
+        public async Task<IActionResult> Post([FromBody] Bus bus)
         {
-            var createdBus = _busService.CreateBus(bus);
+            var createdBus = await _busService.CreateBus(bus);
             return CreatedAtAction("Get", new { id = createdBus.Id }, createdBus);
 
         }
 
         [HttpPut]
-        public IActionResult Put([FromBody] Bus bus)
+        public async Task<IActionResult> Put([FromBody] Bus bus)
         {
-            if (_busService.GetBusById(bus.Id) != null)
+            if (await _busService.GetBusById(bus.Id) != null)
             {
-                return Ok(_busService.UpdateBus(bus));
+                return Ok(await _busService.UpdateBus(bus));
             }
             return NotFound();
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            if (_busService.GetBusById(id) != null)
+            if (await _busService.GetBusById(id) != null)
             {
-                _busService.DeleteBus(id);
+                await _busService.DeleteBus(id);
                 return Ok();
             }
             return NotFound();
