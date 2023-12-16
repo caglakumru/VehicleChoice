@@ -16,15 +16,17 @@ namespace VehicleChoice.API.Controllers
             _boatService = boatService;
         }
         [HttpGet]
-        public async Task<IActionResult> Get()
+        [Route("[action]")]
+        public async Task<IActionResult> GetAllBoats()
         {
             var results = await _boatService.GetAllBoats();
             return Ok(results);
 
         }
 
-        [HttpGet("{color}")]
-        public async Task<IActionResult> Get(string color)
+        [HttpGet]
+        [Route("[action]/{color}")]
+        public async Task<IActionResult> GetBoatByColor(string color)
         {
             var result = await _boatService.GetBoatByColor(color);
             if (result != null)
@@ -34,16 +36,28 @@ namespace VehicleChoice.API.Controllers
             return NotFound();
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Post([FromBody] Boat boat)
+        [HttpGet]
+        [Route("[action]/{id}")]
+        public async Task<IActionResult> GetBoatById(int id)
         {
-            var createdBoat = await _boatService.CreateBoat(boat);
-            return CreatedAtAction("Get", new { id = createdBoat.Id }, createdBoat);
+            var result = await _boatService.GetBoatById(id);
+            if (result != null)
+            {
+                return Ok(result);
+            }
+            return NotFound();
+        }
 
+        [HttpPost]
+        [Route("[action]")]
+        public async Task<IActionResult> CreateBoat([FromBody] Boat boat)
+        {
+            return Ok(await _boatService.CreateBoat(boat));
         }
 
         [HttpPut]
-        public async Task<IActionResult> Put([FromBody] Boat boat)
+        [Route("[action]")]
+        public async Task<IActionResult> UpdateBoat([FromBody] Boat boat)
         {
             if (await _boatService.GetBoatById(boat.Id) != null)
             {
@@ -52,8 +66,9 @@ namespace VehicleChoice.API.Controllers
             return NotFound();
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        [HttpDelete()]
+        [Route("[action]/{id}")]
+        public async Task<IActionResult> DeleteBoat(int id)
         {
             if (await _boatService.GetBoatById(id) != null)
             {

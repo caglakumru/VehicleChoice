@@ -16,16 +16,30 @@ namespace VehicleChoice.API.Controllers
             _carService = carService;
         }
         [HttpGet]
-        public async Task<IActionResult> Get()
+        [Route("[action]")]
+        public async Task<IActionResult> GetAllCars()
         {
             var results = await _carService.GetAllCars();
             return Ok(results);
         }
 
-        [HttpGet("{color}")]
-        public async Task<IActionResult> Get(string color)
+        [HttpGet]
+        [Route("[action]/{color}")]
+        public async Task<IActionResult> GetCarByColor(string color)
         {
             var result= await _carService.GetCarByColor(color);
+            if (result!=null)
+            {
+                return Ok(result);
+            }
+            return NotFound();
+        }   
+        
+        [HttpGet]
+        [Route("[action]/{id}")]
+        public async Task<IActionResult> GetCarById(int id)
+        {
+            var result= await _carService.GetCarById(id);
             if (result!=null)
             {
                 return Ok(result);
@@ -34,14 +48,15 @@ namespace VehicleChoice.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] Car car)
+        [Route("[action]")]
+        public async Task<IActionResult> CreateCar([FromBody] Car car)
         {
-            var createdCar= await _carService.CreateCar(car);
-            return CreatedAtAction("Get", new { id = createdCar.Id }, createdCar);
+            return Ok(await _carService.CreateCar(car));
         }
 
         [HttpPut]
-        public async Task<IActionResult> Put([FromBody] Car car)
+        [Route("[action]")]
+        public async Task<IActionResult> UpdateCar([FromBody] Car car)
         {
             if (await _carService.GetCarById(car.Id)!=null)
             {
@@ -50,8 +65,9 @@ namespace VehicleChoice.API.Controllers
             return NotFound();
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        [HttpDelete]
+        [Route("[action]/{id}")]
+        public async Task<IActionResult> DeleteCar(int id)
         {
 
             if (await _carService.GetCarById(id) != null)

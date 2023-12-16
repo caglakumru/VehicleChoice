@@ -15,14 +15,16 @@ namespace VehicleChoice.API.Controllers
             _busService = busService;
         }
         [HttpGet]
-        public async Task<IActionResult> Get()
+        [Route("[action]")]
+        public async Task<IActionResult> GetAllBuses()
         {
             var results = await _busService.GetAllBuses();
             return Ok(results);
         }
 
-        [HttpGet("{color}")]
-        public async Task<IActionResult> Get(string color)
+        [HttpGet]
+        [Route("[action]/{color}")]
+        public async Task<IActionResult> GetBusByColor(string color)
         {
             var result = await _busService.GetBusByColor(color);
             if (result != null)
@@ -32,16 +34,28 @@ namespace VehicleChoice.API.Controllers
             return NotFound();
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Post([FromBody] Bus bus)
+        [HttpGet]
+        [Route("[action]/{id}")]
+        public async Task<IActionResult> GetBusById(int id)
         {
-            var createdBus = await _busService.CreateBus(bus);
-            return CreatedAtAction("Get", new { id = createdBus.Id }, createdBus);
+            var result = await _busService.GetBusById(id);
+            if (result != null)
+            {
+                return Ok(result);
+            }
+            return NotFound();
+        }
 
+        [HttpPost]
+        [Route("[action]")]
+        public async Task<IActionResult> CreateBus([FromBody] Bus bus)
+        {
+            return Ok(await _busService.CreateBus(bus));
         }
 
         [HttpPut]
-        public async Task<IActionResult> Put([FromBody] Bus bus)
+        [Route("[action]")]
+        public async Task<IActionResult> UpdateBus([FromBody] Bus bus)
         {
             if (await _busService.GetBusById(bus.Id) != null)
             {
@@ -50,8 +64,9 @@ namespace VehicleChoice.API.Controllers
             return NotFound();
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        [HttpDelete]
+        [Route("[action]/{id}")]
+        public async Task<IActionResult> DeleteBus(int id)
         {
             if (await _busService.GetBusById(id) != null)
             {
